@@ -86,13 +86,13 @@ export interface Tool {
 }
 
 export const TOOLS: Tool[] = [
-  { name: 'Premiere Pro', cat: 'Video Editing', logo: '/logos/premiere.png', glow: 'rgba(154,153,255,.55)' },
-  { name: 'After Effects', cat: 'Motion / VFX', logo: '/logos/aftereffects.png', glow: 'rgba(154,153,255,.55)' },
-  { name: 'Photoshop', cat: 'Design', logo: '/logos/photoshop.png', glow: 'rgba(49,168,255,.55)' },
-  { name: 'DaVinci Resolve', cat: 'Colour Grading', logo: '/logos/davinci.png', glow: 'rgba(255,140,40,.55)' },
-  { name: 'HeyGen', cat: 'AI Video', logo: '/logos/heygen.png', glow: 'rgba(120,140,255,.55)' },
-  { name: 'Higgsfield AI', cat: 'Motion AI', logo: '/logos/higgsfield.png', glow: 'rgba(255,122,0,.55)' },
-  { name: 'Claude', cat: 'AI Workflows', logo: '/logos/claude.png', glow: 'rgba(217,119,87,.55)' },
+  { name: 'Premiere Pro', cat: 'Video Editing', logo: 'https://cdn.simpleicons.org/adobepremierepro', glow: 'rgba(154,153,255,.55)' },
+  { name: 'After Effects', cat: 'Motion / VFX', logo: 'https://cdn.simpleicons.org/aftereffects', glow: 'rgba(154,153,255,.55)' },
+  { name: 'Photoshop', cat: 'Design', logo: 'https://cdn.simpleicons.org/photoshop', glow: 'rgba(49,168,255,.55)' },
+  { name: 'DaVinci Resolve', cat: 'Colour Grading', logo: 'https://cdn.simpleicons.org/davinciresolve', glow: 'rgba(255,140,40,.55)' },
+  { name: 'HeyGen', cat: 'AI Video', logo: 'https://cdn.simpleicons.org/heygen', glow: 'rgba(120,140,255,.55)' },
+  { name: 'Higgsfield AI', cat: 'Motion AI', logo: 'https://cdn.simpleicons.org/higgsfield', glow: 'rgba(255,122,0,.55)' },
+  { name: 'Claude', cat: 'AI Workflows', logo: 'https://cdn.simpleicons.org/claude', glow: 'rgba(217,119,87,.55)' },
 ]
 
 export const EXPERIENCE = [
