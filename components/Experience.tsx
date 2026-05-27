@@ -33,6 +33,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-30px' }}
             transition={{ duration: .6, delay: i * .08, ease: EASE }}
+            className="exp-row"
             style={{
               display: 'grid',
               gridTemplateColumns: '160px 1px 1fr',
@@ -40,24 +41,23 @@ export default function Experience() {
               padding: '36px 0',
               borderBottom: i < EXPERIENCE.length - 1 ? '1px solid rgba(255,255,255,.07)' : 'none',
             }}
-            className="max-[900px]:grid-cols-1 max-[900px]:gap-3"
           >
             {/* Date */}
             <div
+              className="exp-date"
               style={{
                 fontFamily: 'var(--font-bebas-neue)', fontSize: '13px', letterSpacing: '2px',
                 color: 'var(--red)', textAlign: 'right', paddingTop: '4px', lineHeight: 1.8,
                 whiteSpace: 'pre-line',
               }}
-              className="max-[900px]:text-left"
             >
               {exp.date}
             </div>
 
             {/* Timeline line */}
             <div
+              className="exp-timeline"
               style={{ background: 'rgba(255,255,255,.1)', position: 'relative' }}
-              className="max-[900px]:hidden"
             >
               <span style={{
                 content: '', position: 'absolute', top: '6px', left: '50%',

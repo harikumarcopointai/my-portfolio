@@ -104,7 +104,9 @@ export default function Contact() {
                 padding: '14px 26px', textDecoration: 'none', color: 'var(--text)',
                 fontSize: '13px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase',
                 transition: 'all .3s',
+                minHeight: '48px',
               }}
+              className="max-[600px]:!px-4 max-[600px]:!text-[12px]"
               whileHover={{
                 background: 'var(--red)',
                 borderColor: 'var(--red)',

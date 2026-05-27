@@ -25,7 +25,7 @@ export default function BentoGrid() {
         margin: '0 auto',
         gridTemplateAreas: `"totm totm ai ai" "totm totm years viewers" "quote quote quote quote"`,
       }}
-      className="max-[1100px]:!grid-cols-2 max-[1100px]:!auto-rows-auto max-[600px]:!grid-cols-1 max-[600px]:!px-6"
+      className="bento-grid max-[1100px]:!grid-cols-2 max-[1100px]:!auto-rows-auto max-[1100px]:![grid-template-rows:none] max-[600px]:!grid-cols-1 max-[600px]:!px-6 max-[600px]:!gap-3"
     >
       {/* TOTM Awards hero tile */}
       <motion.a
@@ -48,7 +48,7 @@ export default function BentoGrid() {
           boxShadow: '0 30px 70px -20px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.12) inset, 0 0 80px -20px rgba(255,140,40,.4)',
           borderColor: 'rgba(255,255,255,.18)',
         }}
-        className="max-[1100px]:aspect-[16/10]"
+        className="max-[1100px]:!min-h-[320px] max-[1100px]:!p-6 max-[600px]:!min-h-[300px]"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -215,7 +215,7 @@ export default function BentoGrid() {
           transition: 'transform .5s, border-color .4s, box-shadow .5s',
         }}
         whileHover={{ y: -4, borderColor: 'rgba(255,255,255,.18)', boxShadow: '0 30px 70px -20px rgba(0,0,0,.85)' }}
-        className="max-[600px]:!flex-col max-[600px]:!items-start max-[600px]:!p-6"
+        className="max-[1100px]:!flex-col max-[1100px]:!items-start max-[1100px]:!gap-4 max-[600px]:!p-6"
       >
         <div style={{
           position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0,
@@ -231,9 +231,9 @@ export default function BentoGrid() {
         </p>
         <span style={{
           position: 'relative', zIndex: 1, flexShrink: 0,
-          display: 'inline-flex', alignItems: 'center', gap: '10px',
-          fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase',
-          color: '#fff', padding: '14px 24px', background: 'var(--red)', borderRadius: '999px',
+          display: 'inline-flex', alignItems: 'center', gap: '8px',
+          fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase',
+          color: '#fff', padding: '10px 18px', background: 'var(--red)', borderRadius: '999px',
           transition: 'transform .25s, background .2s, box-shadow .3s',
         }}>
           Start a Project
@@ -247,7 +247,7 @@ export default function BentoGrid() {
 function BtTag({ accent, label }: { accent: string; label: string }) {
   return (
     <span style={{
-      fontSize: '10.5px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase',
+      fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase',
       color: '#fff', padding: '5px 12px',
       background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)',
       backdropFilter: 'blur(14px) saturate(1.4)', borderRadius: '999px',

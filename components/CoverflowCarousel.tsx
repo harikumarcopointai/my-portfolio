@@ -19,10 +19,50 @@ interface Props {
 export default function CoverflowCarousel({ items, glow, label }: Props) {
   const [active, setActive] = useState(() => Math.min(items.length > 2 ? Math.floor(items.length / 2) : 0, items.length - 1))
   const stageRef = useRef<HTMLDivElement>(null)
+  const wrapRef = useRef<HTMLDivElement>(null)
   const ambientRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const activeRef = useRef(active)
+  const pausedRef = useRef(false)
   useEffect(() => { activeRef.current = active }, [active])
+
+  /* Auto-scroll: advance every 4s, loop, pause on hover/touch/visibility */
+  useEffect(() => {
+    if (items.length <= 1) return
+    const wrap = wrapRef.current
+    if (!wrap) return
+
+    let inView = false
+    const io = new IntersectionObserver(
+      ([entry]) => { inView = entry.isIntersecting },
+      { threshold: 0.25 }
+    )
+    io.observe(wrap)
+
+    const onEnter = () => { pausedRef.current = true }
+    const onLeave = () => { pausedRef.current = false }
+    wrap.addEventListener('mouseenter', onEnter)
+    wrap.addEventListener('mouseleave', onLeave)
+    wrap.addEventListener('touchstart', onEnter, { passive: true })
+    wrap.addEventListener('touchend', () => { setTimeout(onLeave, 2500) })
+
+    const id = setInterval(() => {
+      if (pausedRef.current || !inView || document.hidden) return
+      setActive(prev => (prev + 1) % items.length)
+    }, 1000)
+
+    const onVis = () => { /* interval naturally pauses via document.hidden */ }
+    document.addEventListener('visibilitychange', onVis)
+
+    return () => {
+      clearInterval(id)
+      io.disconnect()
+      wrap.removeEventListener('mouseenter', onEnter)
+      wrap.removeEventListener('mouseleave', onLeave)
+      wrap.removeEventListener('touchstart', onEnter)
+      document.removeEventListener('visibilitychange', onVis)
+    }
+  }, [items.length])
 
   const setActiveIdx = useCallback((i: number) => {
     setActive(Math.max(0, Math.min(items.length - 1, i)))
@@ -136,7 +176,7 @@ export default function CoverflowCarousel({ items, glow, label }: Props) {
   const cur = items[active]
 
   return (
-    <div style={{ position: 'relative', padding: '18px 0 28px', isolation: 'isolate' }}>
+    <div ref={wrapRef} className="cf-stage-wrap" style={{ position: 'relative', padding: '18px 0 28px', isolation: 'isolate', overflowX: 'clip' }}>
       {/* Ambient glow */}
       <div
         ref={ambientRef}
@@ -161,7 +201,8 @@ export default function CoverflowCarousel({ items, glow, label }: Props) {
         aria-roledescription="carousel"
         style={{
           position: 'relative',
-          height: 'clamp(280px,32vw,440px)',
+          height: 'clamp(220px,45vw,440px)',
+          minHeight: '220px',
           perspective: '1700px',
           display: 'flex',
           alignItems: 'center',
@@ -197,7 +238,7 @@ export default function CoverflowCarousel({ items, glow, label }: Props) {
               key={item.url + i}
               ref={el => { cardRefs.current[i] = el }}
               className="cf-card"
-              style={{ width: 'clamp(360px,42vw,620px)', aspectRatio: '16/9', borderRadius: '14px' }}
+              style={{ width: 'clamp(240px,60vw,620px)', aspectRatio: '16/9', borderRadius: '14px' }}
               onClick={() => {
                 if (i === active) window.open(item.url, '_blank', 'noopener')
                 else setActiveIdx(i)
@@ -319,21 +360,30 @@ export default function CoverflowCarousel({ items, glow, label }: Props) {
       </div>
 
       {/* Dots */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginTop: '14px', position: 'relative', zIndex: 5 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '4px', marginTop: '10px', position: 'relative', zIndex: 5 }}>
         {items.map((_, i) => (
           <button
             key={i}
             onClick={() => setActiveIdx(i)}
             aria-label={`Go to item ${i + 1}`}
             style={{
-              width: i === active ? '22px' : '6px',
-              height: '6px', borderRadius: i === active ? '3px' : '50%',
-              background: i === active ? '#fff' : 'rgba(255,255,255,.2)',
-              border: 'none', cursor: 'pointer',
-              transition: 'all .3s ease',
+              minWidth: '40px', height: '36px',
+              padding: 0, background: 'transparent', border: 'none',
+              cursor: 'pointer',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              flex: '0 0 auto',
             }}
-            className="hover:!bg-white/50"
-          />
+          >
+            <span
+              style={{
+                width: i === active ? '22px' : '6px',
+                height: '6px', borderRadius: i === active ? '3px' : '50%',
+                background: i === active ? '#fff' : 'rgba(255,255,255,.2)',
+                transition: 'all .3s ease',
+                display: 'inline-block',
+              }}
+            />
+          </button>
         ))}
       </div>
     </div>

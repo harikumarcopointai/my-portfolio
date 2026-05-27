@@ -173,15 +173,18 @@ export default function Hero() {
       }} />
 
       {/* BG text */}
-      <div style={{
-        position: 'absolute', right: '-20px', top: '50%',
-        transform: 'translateY(-60%)',
-        fontFamily: 'var(--font-bebas-neue), sans-serif',
-        fontSize: 'clamp(200px,22vw,340px)',
-        color: 'rgba(255,255,255,.025)',
-        lineHeight: 1, letterSpacing: '-10px',
-        pointerEvents: 'none', userSelect: 'none',
-      }}>HK</div>
+      <div
+        style={{
+          position: 'absolute', right: '-20px', top: '50%',
+          transform: 'translateY(-60%)',
+          fontFamily: 'var(--font-bebas-neue), sans-serif',
+          fontSize: 'clamp(140px,22vw,340px)',
+          color: 'rgba(255,255,255,.025)',
+          lineHeight: 1, letterSpacing: '-10px',
+          pointerEvents: 'none', userSelect: 'none',
+        }}
+        className="max-[900px]:!opacity-50 max-[600px]:hidden"
+      >HK</div>
 
       {/* Particles */}
       <div ref={particlesRef} style={{ position: 'absolute', inset: 0, overflow: 'hidden' }} />
@@ -202,11 +205,11 @@ export default function Hero() {
 
       {/* Portrait */}
       <div
-        className="max-[1100px]:hidden"
+        className="max-[900px]:hidden"
         style={{
           position: 'absolute', right: '8vw', top: '50%',
           transform: 'translateY(-50%) rotate(2.5deg)',
-          width: 'clamp(280px,28vw,460px)',
+          width: 'clamp(220px,24vw,460px)',
           aspectRatio: '3/4', zIndex: 2,
           borderRadius: '14px', overflow: 'hidden',
           boxShadow: '0 50px 100px -10px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 80px -10px rgba(229,9,20,.3)',
@@ -308,13 +311,21 @@ export default function Hero() {
           <span className="hn-row" style={{ color: 'var(--red)' }} data-row="KUMAR" />
         </div>
 
-        <div style={{
-          fontSize: '18px', fontWeight: 300, color: 'var(--dim)',
-          letterSpacing: '3px', textTransform: 'uppercase',
-          marginBottom: '24px',
-          opacity: 0, animation: 'fadeup .8s forwards .7s',
-        }}>
-          Filmmaker &nbsp;·&nbsp; Creative Producer &nbsp;·&nbsp; Storyteller
+        <div
+          style={{
+            display: 'flex', flexWrap: 'wrap', gap: '10px',
+            fontSize: '18px', fontWeight: 300, color: 'var(--dim)',
+            letterSpacing: '3px', textTransform: 'uppercase',
+            marginBottom: '24px',
+            opacity: 0, animation: 'fadeup .8s forwards .7s',
+          }}
+          className="max-[600px]:!text-[14px] max-[600px]:!tracking-[1.5px]"
+        >
+          <span>Filmmaker</span>
+          <span style={{ opacity: .5 }}>·</span>
+          <span>Creative Producer</span>
+          <span style={{ opacity: .5 }}>·</span>
+          <span>Storyteller</span>
         </div>
 
         <p style={{
@@ -325,7 +336,7 @@ export default function Hero() {
           "Stories that stay with you — where every frame has a feeling, and every word hits home."
         </p>
 
-        <div style={{ display: 'flex', gap: '14px', opacity: 0, animation: 'fadeup .8s forwards 1s' }}>
+        <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', opacity: 0, animation: 'fadeup .8s forwards 1s' }}>
           <Link href="#work" style={{
             display: 'flex', alignItems: 'center', gap: '10px',
             background: 'white', color: 'black',
@@ -356,7 +367,7 @@ export default function Hero() {
           zIndex: 3, textAlign: 'right',
           opacity: 0, animation: 'fadeup .8s forwards 1.2s',
         }}
-        className="max-[900px]:hidden"
+        className="max-[1024px]:hidden"
       >
         {[
           { num: '8+', label: 'Years in Film' },

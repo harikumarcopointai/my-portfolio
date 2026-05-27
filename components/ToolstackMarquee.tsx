@@ -19,7 +19,7 @@ export default function ToolstackMarquee() {
               background: 'rgba(255,255,255,.04)',
               border: '1px solid rgba(255,255,255,.08)',
               borderRadius: '18px',
-              cursor: 'pointer', flexShrink: 0, minWidth: '240px',
+              cursor: 'pointer', flexShrink: 0, minWidth: '200px',
               textDecoration: 'none', color: 'inherit',
               position: 'relative', isolation: 'isolate',
               transition: 'transform .35s cubic-bezier(.22,.85,.27,1.01), background .3s, border-color .3s, box-shadow .35s',
@@ -52,7 +52,7 @@ export default function ToolstackMarquee() {
               <span style={{ fontSize: '15px', fontWeight: 700, color: '#fff', letterSpacing: '.3px', lineHeight: 1.1, whiteSpace: 'nowrap' }}>
                 {t.name}
               </span>
-              <span style={{ fontSize: '10.5px', fontWeight: 600, color: 'rgba(255,255,255,.55)', letterSpacing: '1.8px', textTransform: 'uppercase', marginTop: '4px', whiteSpace: 'nowrap', transition: 'color .3s' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255,255,255,.55)', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '4px', whiteSpace: 'nowrap', transition: 'color .3s' }}>
                 {t.cat}
               </span>
             </div>

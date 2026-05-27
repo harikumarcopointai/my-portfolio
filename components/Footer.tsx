@@ -7,6 +7,8 @@ export default function Footer() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '16px',
         background: 'var(--bg)',
       }}
       className="max-[900px]:flex-col max-[900px]:gap-3 max-[900px]:text-center max-[900px]:px-6 max-[900px]:py-7"

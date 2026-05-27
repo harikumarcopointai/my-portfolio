@@ -26,6 +26,7 @@ export default function About() {
   return (
     <section
       id="about"
+      className="about-grid max-[900px]:!px-6 max-[900px]:!py-[60px]"
       style={{
         padding: '80px 60px',
         display: 'grid',
@@ -35,7 +36,6 @@ export default function About() {
         maxWidth: '1400px',
         margin: '0 auto',
       }}
-      className="max-[900px]:grid-cols-1 max-[900px]:gap-12 max-[900px]:px-6 max-[900px]:py-[60px]"
     >
       {/* Left column */}
       <motion.div
@@ -46,6 +46,7 @@ export default function About() {
         {/* Photo card */}
         <motion.div
           custom={0} variants={fadeUp}
+          className="max-[1024px]:!mx-auto"
           style={{
             position: 'relative', marginBottom: '32px', width: '100%',
             aspectRatio: '4/5', maxWidth: '420px', borderRadius: '18px', overflow: 'hidden',
@@ -68,7 +69,7 @@ export default function About() {
             display: 'flex', alignItems: 'center', gap: '10px', pointerEvents: 'none',
           }}>
             <span style={{
-              fontSize: '10.5px', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase',
+              fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase',
               color: '#fff', padding: '5px 11px', background: 'rgba(229,9,20,.85)', borderRadius: '999px',
               display: 'inline-flex', alignItems: 'center', gap: '6px',
             }}>

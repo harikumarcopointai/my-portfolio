@@ -28,7 +28,7 @@ export default function PosterGrid({ items, glow }: Props) {
         margin: '0 auto',
         position: 'relative',
       } as React.CSSProperties}
-      className="max-[900px]:grid-cols-1 max-[900px]:gap-[18px] max-[900px]:px-6 min-[600px]:max-[900px]:grid-cols-3 min-[600px]:max-[900px]:gap-3"
+      className="max-[1100px]:gap-6 max-[1100px]:px-8 max-[900px]:!grid-cols-2 max-[900px]:!gap-4 max-[900px]:!px-6 max-[600px]:!grid-cols-1 max-[600px]:!gap-[18px]"
     >
       {/* Ambient glow */}
       <div style={{
@@ -91,8 +91,8 @@ export default function PosterGrid({ items, glow }: Props) {
             pointerEvents: 'none',
           }}>
             <span style={{
-              alignSelf: 'flex-start', fontSize: '10.5px', fontWeight: 700,
-              letterSpacing: '2.5px', textTransform: 'uppercase', color: '#fff',
+              alignSelf: 'flex-start', fontSize: '12px', fontWeight: 700,
+              letterSpacing: '1.8px', textTransform: 'uppercase', color: '#fff',
               marginBottom: '14px', padding: '5px 11px',
               background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)',
               backdropFilter: 'blur(14px) saturate(1.4)', borderRadius: '999px',
@@ -134,7 +134,7 @@ export default function PosterGrid({ items, glow }: Props) {
               boxShadow: '0 12px 40px rgba(0,0,0,.6), 0 0 0 8px rgba(255,255,255,.06)',
               transition: 'transform .45s cubic-bezier(.22,.85,.27,1.4), opacity .35s, box-shadow .35s',
             }}
-            className="group-hover:opacity-100 [.poster-card:hover_&]:opacity-100 [.poster-card:hover_&]:!scale-100"
+            className="poster-play group-hover:opacity-100 [.poster-card:hover_&]:opacity-100 [.poster-card:hover_&]:!scale-100"
           >
             <svg viewBox="0 0 24 24" style={{ width: '30px', height: '30px', marginLeft: '4px', fill: 'currentColor' }}><polygon points="6 4 20 12 6 20"/></svg>
           </button>

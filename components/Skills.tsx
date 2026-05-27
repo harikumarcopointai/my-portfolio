@@ -54,7 +54,7 @@ export default function Skills() {
           </h2>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '3px' }} className="max-[900px]:grid-cols-1">
+        <div className="skills-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '3px' }}>
           {skills.map((skill, i) => (
             <motion.div
               key={skill.name}

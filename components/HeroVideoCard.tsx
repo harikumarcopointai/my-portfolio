@@ -22,7 +22,11 @@ export default function HeroVideoCard({ id, label, tags, glow }: Props) {
       transition={{ duration: .6, ease: EASE }}
       style={{
         display: 'block',
-        margin: '14px 60px 28px',
+        marginTop: '14px',
+        marginBottom: '28px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: 'calc(100% - 120px)',
         borderRadius: '18px',
         overflow: 'hidden',
         aspectRatio: '16/9',
@@ -36,7 +40,7 @@ export default function HeroVideoCard({ id, label, tags, glow }: Props) {
         position: 'relative',
         ['--cf-glow' as string]: glow,
       } as React.CSSProperties}
-      className="max-[900px]:mx-5 max-[900px]:my-3"
+      className="max-[1100px]:!w-[calc(100%-64px)] max-[900px]:!w-[calc(100%-40px)]"
       whileHover={{
         y: -4,
         boxShadow: `0 50px 100px -20px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 80px -10px ${glow}`,
@@ -72,7 +76,7 @@ export default function HeroVideoCard({ id, label, tags, glow }: Props) {
         <div style={{
           fontFamily: 'var(--font-bebas-neue)', fontSize: 'clamp(30px,3.6vw,56px)',
           letterSpacing: '1.5px', color: '#fff', lineHeight: 1.02,
-          marginBottom: '10px', textShadow: '0 4px 20px rgba(0,0,0,.6)', maxWidth: '80%',
+          marginBottom: '10px', textShadow: '0 4px 20px rgba(0,0,0,.6)', maxWidth: '100%',
         }}>{label}</div>
         <div style={{ fontSize: '13px', fontWeight: 500, color: 'rgba(255,255,255,.85)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
           <span style={{
